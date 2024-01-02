@@ -1,0 +1,25 @@
+{
+    "name": "FoxHunt - Email Finder",
+    "manifest_version": 3,
+    "version": "1.0.00",
+    "description": "Email Finder For LinkedIn Recruiter",
+    "author": "Matt Fox",
+    "icons": {
+              "128": "/images/icons/icon128.png" },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+      },
+    "permissions": [
+        "tabs","storage","activeTab","scripting","alarms","identity","identity.email"
+    ],
+    "content_scripts": [
+      {
+        "matches": [ "*://linkedin.com/*"],
+        "js" : [ "foxhunt.js"],
+        "run_at": "document_idle"
+      }
+  ]
+}
